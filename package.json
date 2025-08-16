@@ -1,11 +1,10 @@
 {
   "name": "payhero-callback",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/server.js",
+  "description": "PayHero STK Callback Server",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,10 +14,6 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/amigaamg/payhero-callback/issues"
-  },
-  "homepage": "https://github.com/amigaamg/payhero-callback#readme",
   "dependencies": {
     "body-parser": "^2.2.0",
     "express": "^5.1.0"
