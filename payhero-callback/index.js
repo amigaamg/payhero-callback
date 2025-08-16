@@ -1,14 +1,24 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+
 const app = express();
+const port = process.env.PORT || 3000; // Render requires process.env.PORT
 
-app.use(express.json());
+app.use(bodyParser.json());
 
-app.post("/payhero/callback", (req, res) => {
-  console.log("✅ Callback received:", JSON.stringify(req.body, null, 2));
-  res.json({ status: "ok" });
+// Callback endpoint for PayHero
+app.post("/callback", async (req, res) => {
+  console.log("Received callback:", req.body);
+
+  // Later: save to Firebase
+  res.status(200).send("Callback received");
 });
 
-app.get("/", (req, res) => res.send("Callback server running"));
+// Health check (optional)
+app.get("/", (req, res) => {
+  res.send("PayHero Callback Server is running ✅");
+});
 
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
